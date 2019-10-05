@@ -61,14 +61,14 @@ public class VisibilityCalculationTests
     private RecommendationServiceImpl sut;
 
     // AnnotationSuggestion
-    private final static long RECOMMENDER_ID = 1;
-    private final static String RECOMMENDER_NAME = "TestEntityRecommender";
-    private final static String FEATURE = "value";
-    private final static String DOC_NAME = "TestDocument";
-    private final static String UI_LABEL = "TestUiLabel";
-    private final static double CONFIDENCE = 0.2;
-    private final static String CONFIDENCE_EXPLANATION = "Predictor A: 0.05 | Predictor B: 0.15";
-    private final static String COVERED_TEXT = "TestText";
+    private static final long RECOMMENDER_ID = 1;
+    private static final String RECOMMENDER_NAME = "TestEntityRecommender";
+    private static final String FEATURE = "value";
+    private static final String DOC_NAME = "TestDocument";
+    private static final String UI_LABEL = "TestUiLabel";
+    private static final double CONFIDENCE = 0.2;
+    private static final String CONFIDENCE_EXPLANATION = "Predictor A: 0.05 | Predictor B: 0.15";
+    private static final String COVERED_TEXT = "TestText";
 
     @Before
     public void setUp() throws Exception
