@@ -35,7 +35,7 @@ import de.tudarmstadt.ukp.inception.kb.model.KnowledgeBase;
 
 public class Queries
 {
-    private final static Logger LOG = LoggerFactory.getLogger(Queries.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Queries.class);
     
     public static Map<String, KBProperty> fetchProperties(KnowledgeBase aKB,
             RepositoryConnection aConn, Collection<String> aStmts)
