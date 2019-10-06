@@ -49,15 +49,15 @@ public class ProjectRecommendersPanel
 
         RecommenderListPanel recommenderListPanel = new RecommenderListPanel("recommenders",
                 projectModel, selectedRecommenderModel);
-        recommenderListPanel.setCreateAction(_target -> {
+        recommenderListPanel.setCreateAction(target -> {
             Recommender recommender = new Recommender();
             recommender.setMaxRecommendations(MAX_RECOMMENDATIONS_DEFAULT);
             selectedRecommenderModel.setObject(recommender);
             recommenderEditorPanel.modelChanged();
         });
-        recommenderListPanel.setChangeAction(_target -> {
+        recommenderListPanel.setChangeAction(target -> {
             recommenderEditorPanel.modelChanged();
-            _target.add(recommenderEditorPanel);
+            target.add(recommenderEditorPanel);
         });
         add(recommenderListPanel);
         

@@ -256,9 +256,9 @@ public class RecommendationEditorExtension
         // also update their state to remain in sync with the new predictions
         if (switched) {
             RequestCycle.get().find(AjaxRequestTarget.class)
-                    .ifPresent(_target -> _target.getPage().send(_target.getPage(),
+                    .ifPresent(target -> target.getPage().send(target.getPage(),
                             Broadcast.BREADTH,
-                            new PredictionsSwitchedEvent(_target, aCas, aState, aVDoc)));
+                            new PredictionsSwitchedEvent(target, aCas, aState, aVDoc)));
         }
 
         // Add the suggestions to the visual document

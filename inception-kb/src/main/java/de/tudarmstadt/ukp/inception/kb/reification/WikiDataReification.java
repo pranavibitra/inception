@@ -225,7 +225,7 @@ public class WikiDataReification
         for (KBStatement stmt : statements.values()) {
             // Fill in property information in statement
             KBProperty property = propertyMap.computeIfAbsent(stmt.getProperty().getIdentifier(),
-                _it -> new KBProperty(_it));
+                it -> new KBProperty(it));
             stmt.setProperty(property);
             
             // Fill in label information for IRI-valued statements
@@ -238,7 +238,7 @@ public class WikiDataReification
             for (KBQualifier qualifier : stmt.getQualifiers()) {
                 // Fill in property information in qualifier
                 KBProperty qualifierProperty = propertyMap.computeIfAbsent(
-                        qualifier.getProperty().getIdentifier(), _it -> new KBProperty(_it));
+                        qualifier.getProperty().getIdentifier(), it -> new KBProperty(it));
                 qualifier.setProperty(qualifierProperty);
                 
                 // Fill in label information for IRI-valued qualifiers
@@ -262,7 +262,7 @@ public class WikiDataReification
     {
         ValueFactory vf = aConnection.getValueFactory();
         
-        String QUERY = String
+        String query = String
             .join("\n",
                 "SELECT DISTINCT ?s ?p ?ps ?o WHERE {",
                 "  ?s  ?p  ?id .",
@@ -271,7 +271,7 @@ public class WikiDataReification
                 "}",
                 "LIMIT 10");
         Resource id = vf.createBNode(aStatementId);
-        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, QUERY);
+        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, query);
         tupleQuery.setBinding("id", id);
         tupleQuery.setBinding("ps_ns", vf.createIRI(PREDICATE_NAMESPACE));
 
@@ -312,13 +312,13 @@ public class WikiDataReification
     {
         ValueFactory vf = aConnection.getValueFactory();
         
-        String QUERY = String.join("\n",
+        String query = String.join("\n",
                 "SELECT DISTINCT ?p ?o WHERE {",
                 "  ?id ?p ?o .",
                 "}",
                 "LIMIT " + kb.getMaxResults());
         Resource id = vf.createBNode(aStatementId);
-        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, QUERY);
+        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, query);
         tupleQuery.setBinding("id", id);
 
         tupleQuery.setIncludeInferred(false);

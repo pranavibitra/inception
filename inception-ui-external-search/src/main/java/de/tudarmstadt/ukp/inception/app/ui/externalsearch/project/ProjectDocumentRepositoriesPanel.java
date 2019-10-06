@@ -52,9 +52,9 @@ public class ProjectDocumentRepositoriesPanel
             externalSearchProviderEditorPanel.modelChanged();
             selectedDocumentRepository.setObject(new DocumentRepository());
         });
-        documentRepositoryListPanel.setChangeAction(_target -> {
+        documentRepositoryListPanel.setChangeAction(target -> {
             externalSearchProviderEditorPanel.modelChanged();
-            _target.add(externalSearchProviderEditorPanel);
+            target.add(externalSearchProviderEditorPanel);
         });
         add(documentRepositoryListPanel);
     }

@@ -95,8 +95,8 @@ public class RecommendationSidebar
 
         form.add(new LambdaAjaxLink("retrain", this::actionRetrain));
 
-        form.add(new LambdaAjaxButton<>("save", (_target, _form) -> 
-                aAnnotationPage.actionRefreshDocument(_target)));
+        form.add(new LambdaAjaxButton<>("save", (target, _form) ->
+                aAnnotationPage.actionRefreshDocument(target)));
 
         add(form);
 

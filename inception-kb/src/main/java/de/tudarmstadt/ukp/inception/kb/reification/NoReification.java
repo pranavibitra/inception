@@ -228,8 +228,8 @@ public class NoReification
             KBStatement mockStatement)
     {
         ValueFactory vf = aConnection.getValueFactory();
-        String QUERY = "SELECT * WHERE { ?s ?p ?o . }";
-        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, QUERY);
+        String query = "SELECT * WHERE { ?s ?p ?o . }";
+        TupleQuery tupleQuery = aConnection.prepareTupleQuery(QueryLanguage.SPARQL, query);
         tupleQuery.setBinding("s", vf.createIRI(mockStatement.getInstance().getIdentifier()));
         tupleQuery.setBinding("p", vf.createIRI(mockStatement.getProperty().getIdentifier()));
 

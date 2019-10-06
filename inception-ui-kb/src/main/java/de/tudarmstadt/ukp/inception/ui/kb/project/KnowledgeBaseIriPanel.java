@@ -114,7 +114,7 @@ public class KnowledgeBaseIriPanel
         };
         iriSchemaChoice.setOutputMarkupId(true);
         // OnChange update the model with corresponding iris
-        iriSchemaChoice.add(new LambdaAjaxFormComponentUpdatingBehavior("change", _target -> {
+        iriSchemaChoice.add(new LambdaAjaxFormComponentUpdatingBehavior("change", target -> {
             SchemaProfile profile = iriSchemaChoice.getModelObject();
             // If the user switches to the custom profile, we retain the values from the
             // previously selected profile and just make the IRI mapping ediable. If the user
@@ -130,7 +130,7 @@ public class KnowledgeBaseIriPanel
                 propertyDescriptionField
                     .setModelObject(profile.getPropertyDescriptionIri().stringValue());
             }
-            _target.add(comboBoxWrapper, iriSchemaChoice);
+            target.add(comboBoxWrapper, iriSchemaChoice);
         }));
         comboBoxWrapper.add(iriSchemaChoice);
     }

@@ -129,27 +129,27 @@ public class WikiDataReificationTest
         final String MONA_LISA = "http://www.wikidata.org/entity/Q12418";
         final String MATERIAL_USED = "http://www.wikidata.org/prop/P186";
         final String COMMONS_CATEGORY = "http://www.wikidata.org/prop/P373";
-        final IRI WOOD = vf.createIRI("http://www.wikidata.org/entity/Q287");
-        final IRI OIL_PAINT = vf.createIRI("http://www.wikidata.org/entity/Q296955");
-        final IRI POPLAR_WOOD = vf.createIRI("http://www.wikidata.org/entity/Q291034");
+        final IRI wood = vf.createIRI("http://www.wikidata.org/entity/Q287");
+        final IRI oilPaint = vf.createIRI("http://www.wikidata.org/entity/Q296955");
+        final IRI poplarWood = vf.createIRI("http://www.wikidata.org/entity/Q291034");
         final String APPLIES_TO_PART = "http://www.wikidata.org/prop/qualifier/P518";
         final String START_TIME = "http://www.wikidata.org/prop/qualifier/P580";
-        final IRI PAINTING_SURFACE = vf.createIRI("http://www.wikidata.org/entity/Q861259");
-        final IRI STRETCHER_BAR = vf.createIRI("http://www.wikidata.org/entity/Q1737943");
+        final IRI paintingSurface = vf.createIRI("http://www.wikidata.org/entity/Q861259");
+        final IRI stretcherBar = vf.createIRI("http://www.wikidata.org/entity/Q1737943");
         
         List<KBStatement> result;
         try (RepositoryConnection conn = rdf4jLocalRepo.getConnection()) {
             result = sut.listStatements(conn, kb, new KBHandle(MONA_LISA), true);
         }
         
-        KBStatement stmt1 = new KBStatement(STMT1, MONA_LISA, MATERIAL_USED, OIL_PAINT, "Q296955");
+        KBStatement stmt1 = new KBStatement(STMT1, MONA_LISA, MATERIAL_USED, oilPaint, "Q296955");
 
-        KBStatement stmt2 = new KBStatement(STMT2, MONA_LISA, MATERIAL_USED, POPLAR_WOOD,
+        KBStatement stmt2 = new KBStatement(STMT2, MONA_LISA, MATERIAL_USED, poplarWood,
                 "Q291034");
-        stmt2.addQualifier(new KBQualifier(APPLIES_TO_PART, PAINTING_SURFACE));
+        stmt2.addQualifier(new KBQualifier(APPLIES_TO_PART, paintingSurface));
 
-        KBStatement stmt3 = new KBStatement(STMT3, MONA_LISA, MATERIAL_USED, WOOD, "Q287");
-        stmt3.addQualifier(new KBQualifier(APPLIES_TO_PART, STRETCHER_BAR));
+        KBStatement stmt3 = new KBStatement(STMT3, MONA_LISA, MATERIAL_USED, wood, "Q287");
+        stmt3.addQualifier(new KBQualifier(APPLIES_TO_PART, stretcherBar));
         stmt3.addQualifier(new KBQualifier(START_TIME, vf.createLiteral(1951)));
 
         KBStatement stmt4 = new KBStatement(STMT4, MONA_LISA, COMMONS_CATEGORY,

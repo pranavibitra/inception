@@ -359,8 +359,8 @@ public class AccessSpecificSettingsPanel
 
             @Override protected void populateItem(ListItem<KnowledgeBaseProfile> item)
             {
-                LambdaAjaxLink link = new LambdaAjaxLink("suggestionLink", _target ->
-                        actionSelectPredefinedKB(_target, item.getModel()));
+                LambdaAjaxLink link = new LambdaAjaxLink("suggestionLink", target ->
+                        actionSelectPredefinedKB(target, item.getModel()));
 
                 // Can not import the same KB more than once
                 boolean isImported = downloadedProfiles

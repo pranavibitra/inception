@@ -43,9 +43,9 @@ public class SPARQLQueryBuilderAsserts
         
         assertThat(results).isNotEmpty();
         
-        assertThat(results).allMatch(_child -> {
+        assertThat(results).allMatch(child -> {
             try (RepositoryConnection conn = aRepository.getConnection()) {
-                return SPARQLQueryBuilder.forClasses(aKB).parentsOf(_child.getIdentifier())
+                return SPARQLQueryBuilder.forClasses(aKB).parentsOf(child.getIdentifier())
                         .asHandles(conn, true)
                         .stream()
                         .map(KBHandle::getIdentifier)

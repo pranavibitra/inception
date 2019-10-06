@@ -216,7 +216,7 @@ public class DocumentMetadataAnnotationSelectionPanel extends Panel
                 aItem.add(detailPanel);
                 
                 LambdaAjaxLink link = new LambdaAjaxLink(CID_ANNOTATION_LINK,
-                    _target -> actionSelect(_target, detailPanel));
+                    target -> actionSelect(target, detailPanel));
                 link.add(new Label(CID_LABEL));
                 aItem.add(link);
     

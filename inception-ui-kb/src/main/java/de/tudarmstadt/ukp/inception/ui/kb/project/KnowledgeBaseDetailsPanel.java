@@ -222,7 +222,7 @@ public class KnowledgeBaseDetailsPanel
             new StringResourceModel("kb.details.delete.confirmation.content", this,
                 kbwModel.bind("kb")));
         confirmationDialog.show(aTarget);
-        confirmationDialog.setConfirmAction(_target -> {
+        confirmationDialog.setConfirmAction(target -> {
             KnowledgeBase kb = kbwModel.getObject().getKb();
             try {
                 kbService.removeKnowledgeBase(kb);
@@ -232,11 +232,11 @@ public class KnowledgeBaseDetailsPanel
             catch (RepositoryException | RepositoryConfigException e) {
                 error("Unable to remove knowledge base: " + e.getLocalizedMessage());
                 log.error("Unable to remove knowledge base.", e);
-                _target.addChildren(getPage(), IFeedback.class);
+                target.addChildren(getPage(), IFeedback.class);
 
             }
-            _target.add(this);
-            _target.add(findParentWithAssociatedMarkup());
+            target.add(this);
+            target.add(findParentWithAssociatedMarkup());
         });
     }
 

@@ -167,18 +167,18 @@ public class SPARQLQueryBuilderGenericTest
                 .limit(3));
         Set<String> rootIdentifiers = roots.stream().map(KBHandle::getIdentifier).collect(toSet());
         
-        assertThat(roots).extracting(KBHandle::getIdentifier).allMatch(_root -> {
+        assertThat(roots).extracting(KBHandle::getIdentifier).allMatch(root -> {
             try (RepositoryConnection conn = repo.getConnection()) {
 //                System.out.print("R"); 
                 List<KBHandle> children = SPARQLQueryBuilder
                         .forClasses(kb)
-                        .childrenOf(_root)
+                        .childrenOf(root)
                         .asHandles(conn, true);
                 
-                return children.stream().map(KBHandle::getIdentifier).allMatch(_child -> 
+                return children.stream().map(KBHandle::getIdentifier).allMatch(child ->
                         SPARQLQueryBuilder
                                 .forClasses(kb)
-                                .parentsOf(_child)
+                                .parentsOf(child)
                                 .limit(3)
                                 .asHandles(conn, true)
                                 .stream()

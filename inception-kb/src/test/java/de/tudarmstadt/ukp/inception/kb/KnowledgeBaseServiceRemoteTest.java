@@ -163,20 +163,20 @@ public class KnowledgeBaseServiceRemoteTest
 
         {
             KnowledgeBaseProfile profile = PROFILES.get("wine_ontology");
-            KnowledgeBase kb_wine = new KnowledgeBase();
-            kb_wine.setName("Wine ontology (OWL)");
-            kb_wine.setType(profile.getType());
-            kb_wine.setReification(profile.getReification());
-            kb_wine.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
-            kb_wine.applyMapping(profile.getMapping());
-            kb_wine.setDefaultLanguage(profile.getDefaultLanguage());
-            kb_wine.setMaxResults(maxResults);
+            KnowledgeBase kbWine = new KnowledgeBase();
+            kbWine.setName("Wine ontology (OWL)");
+            kbWine.setType(profile.getType());
+            kbWine.setReification(profile.getReification());
+            kbWine.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
+            kbWine.applyMapping(profile.getMapping());
+            kbWine.setDefaultLanguage(profile.getDefaultLanguage());
+            kbWine.setMaxResults(maxResults);
             rootConcepts = new HashSet<String>();
             rootConcepts.add("http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#Grape");
             parentChildConcepts = new HashMap<String, String>();
             parentChildConcepts.put("http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#Grape",
                     "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape");
-            kbList.add(new TestConfiguration("data/wine-ontology.rdf", kb_wine,
+            kbList.add(new TestConfiguration("data/wine-ontology.rdf", kbWine,
                     "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargaux",
                     rootConcepts, parentChildConcepts));
         }
@@ -214,21 +214,21 @@ public class KnowledgeBaseServiceRemoteTest
 
         {
             KnowledgeBaseProfile profile = PROFILES.get("wikidata");
-            KnowledgeBase kb_wikidata_direct = new KnowledgeBase();
-            kb_wikidata_direct.setName("Wikidata (official/direct mapping)");
-            kb_wikidata_direct.setType(profile.getType());
-            kb_wikidata_direct.setReification(profile.getReification());
-            kb_wikidata_direct.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
-            kb_wikidata_direct.applyMapping(profile.getMapping());
-            kb_wikidata_direct.applyRootConcepts(profile);
-            kb_wikidata_direct.setDefaultLanguage(profile.getDefaultLanguage());
-            kb_wikidata_direct.setMaxResults(maxResults);
+            KnowledgeBase kbWikidataDirect = new KnowledgeBase();
+            kbWikidataDirect.setName("Wikidata (official/direct mapping)");
+            kbWikidataDirect.setType(profile.getType());
+            kbWikidataDirect.setReification(profile.getReification());
+            kbWikidataDirect.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
+            kbWikidataDirect.applyMapping(profile.getMapping());
+            kbWikidataDirect.applyRootConcepts(profile);
+            kbWikidataDirect.setDefaultLanguage(profile.getDefaultLanguage());
+            kbWikidataDirect.setMaxResults(maxResults);
             rootConcepts = new HashSet<String>();
             rootConcepts.add("http://www.wikidata.org/entity/Q35120");
             parentChildConcepts = new HashMap<String, String>();
             parentChildConcepts.put("http://www.wikidata.org/entity/Q35120",
                     "http://www.wikidata.org/entity/Q24229398");
-            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kb_wikidata_direct,
+            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kbWikidataDirect,
                     "http://www.wikidata.org/entity/Q5", rootConcepts, parentChildConcepts));
         }
 
@@ -248,64 +248,64 @@ public class KnowledgeBaseServiceRemoteTest
 
         {
             KnowledgeBaseProfile profile = PROFILES.get("db_pedia");
-            KnowledgeBase kb_dbpedia = new KnowledgeBase();
-            kb_dbpedia.setName(profile.getName());
-            kb_dbpedia.setType(profile.getType());
-            kb_dbpedia.setReification(profile.getReification());
-            kb_dbpedia.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
-            kb_dbpedia.applyMapping(profile.getMapping());
-            kb_dbpedia.applyRootConcepts(profile);
-            kb_dbpedia.setDefaultLanguage(profile.getDefaultLanguage());
-            kb_dbpedia.setMaxResults(maxResults);
-            kb_dbpedia.setDefaultDatasetIri(profile.getDefaultDataset());
+            KnowledgeBase kbDbpedia = new KnowledgeBase();
+            kbDbpedia.setName(profile.getName());
+            kbDbpedia.setType(profile.getType());
+            kbDbpedia.setReification(profile.getReification());
+            kbDbpedia.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
+            kbDbpedia.applyMapping(profile.getMapping());
+            kbDbpedia.applyRootConcepts(profile);
+            kbDbpedia.setDefaultLanguage(profile.getDefaultLanguage());
+            kbDbpedia.setMaxResults(maxResults);
+            kbDbpedia.setDefaultDatasetIri(profile.getDefaultDataset());
             rootConcepts = new HashSet<String>();
             rootConcepts.add("http://www.w3.org/2002/07/owl#Thing");
             parentChildConcepts = new HashMap<String, String>();
             parentChildConcepts.put("http://www.w3.org/2002/07/owl#Thing",
                     "http://dbpedia.org/ontology/Biomolecule");
-            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kb_dbpedia,
+            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kbDbpedia,
                     "http://dbpedia.org/ontology/Organisation", rootConcepts, parentChildConcepts));
         }
 
         {
             KnowledgeBaseProfile profile = PROFILES.get("yago");
-            KnowledgeBase kb_yago = new KnowledgeBase();
-            kb_yago.setName(profile.getName());
-            kb_yago.setType(profile.getType());
-            kb_yago.setReification(profile.getReification());
-            kb_yago.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
-            kb_yago.applyMapping(profile.getMapping());
-            kb_yago.applyRootConcepts(profile);
-            kb_yago.setDefaultLanguage(profile.getDefaultLanguage());
-            kb_yago.setMaxResults(maxResults);
+            KnowledgeBase kbYago = new KnowledgeBase();
+            kbYago.setName(profile.getName());
+            kbYago.setType(profile.getType());
+            kbYago.setReification(profile.getReification());
+            kbYago.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
+            kbYago.applyMapping(profile.getMapping());
+            kbYago.applyRootConcepts(profile);
+            kbYago.setDefaultLanguage(profile.getDefaultLanguage());
+            kbYago.setMaxResults(maxResults);
             rootConcepts = new HashSet<String>();
             rootConcepts.add("http://www.w3.org/2002/07/owl#Thing");
             parentChildConcepts = new HashMap<String, String>();
             parentChildConcepts.put("http://www.w3.org/2002/07/owl#Thing",
                     "http://yago-knowledge.org/resource/wikicat_Alleged_UFO-related_entities");
-            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kb_yago,
+            kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(), kbYago,
                     "http://yago-knowledge.org/resource/wikicat_Alkaloids",
                     rootConcepts, parentChildConcepts));
         }
 
         {
             KnowledgeBaseProfile profile = PROFILES.get("zbw-stw-economics");
-            KnowledgeBase kb_zbw_stw_economics = new KnowledgeBase();
-            kb_zbw_stw_economics.setName(profile.getName());
-            kb_zbw_stw_economics.setType(profile.getType());
-            kb_zbw_stw_economics.setReification(profile.getReification());
-            kb_zbw_stw_economics.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
-            kb_zbw_stw_economics.applyMapping(profile.getMapping());
-            kb_zbw_stw_economics.applyRootConcepts(profile);
-            kb_zbw_stw_economics.setDefaultLanguage(profile.getDefaultLanguage());
-            kb_zbw_stw_economics.setMaxResults(maxResults);
+            KnowledgeBase kbZbwStwEconomics = new KnowledgeBase();
+            kbZbwStwEconomics.setName(profile.getName());
+            kbZbwStwEconomics.setType(profile.getType());
+            kbZbwStwEconomics.setReification(profile.getReification());
+            kbZbwStwEconomics.setFullTextSearchIri(profile.getAccess().getFullTextSearchIri());
+            kbZbwStwEconomics.applyMapping(profile.getMapping());
+            kbZbwStwEconomics.applyRootConcepts(profile);
+            kbZbwStwEconomics.setDefaultLanguage(profile.getDefaultLanguage());
+            kbZbwStwEconomics.setMaxResults(maxResults);
             rootConcepts = new HashSet<String>();
             rootConcepts.add("http://zbw.eu/stw/thsys/a");
             parentChildConcepts = new HashMap<String, String>();
             parentChildConcepts.put("http://zbw.eu/stw/thsys/a",
                     "http://zbw.eu/stw/thsys/70582");
             kbList.add(new TestConfiguration(profile.getAccess().getAccessUrl(),
-                    kb_zbw_stw_economics, "http://zbw.eu/stw/thsys/71020", rootConcepts, parentChildConcepts));
+                kbZbwStwEconomics, "http://zbw.eu/stw/thsys/71020", rootConcepts, parentChildConcepts));
         }
 
         // Commenting this out for the moment becuase we expect that every ontology contains

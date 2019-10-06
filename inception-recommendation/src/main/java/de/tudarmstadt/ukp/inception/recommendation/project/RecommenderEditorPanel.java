@@ -233,8 +233,8 @@ public class RecommenderEditorPanel
 
         form.add(activationContainer = new WebMarkupContainer(MID_ACTIVATION_CONTAINER));
         activationContainer.setOutputMarkupPlaceholderTag(true);
-        activationContainer.add(visibleWhen(() -> toolChoice.getModel().map(_tool ->
-                recommenderRegistry.getFactory(_tool.getKey()).isEvaluable())
+        activationContainer.add(visibleWhen(() -> toolChoice.getModel().map(tool ->
+                recommenderRegistry.getFactory(tool.getKey()).isEvaluable())
                 .orElse(false).getObject()));
 
         activationContainer.add(new CheckBox(MID_ALWAYS_SELECTED)
@@ -257,7 +257,7 @@ public class RecommenderEditorPanel
                 .setStep(1)
                 .setOutputMarkupPlaceholderTag(true)
                 .add(visibleWhen(() -> toolChoice.getModel()
-                                .map(_tool -> recommenderRegistry.getFactory(_tool.getKey())
+                                .map(tool -> recommenderRegistry.getFactory(tool.getKey())
                                         .isMultipleRecommendationProvider())
                                 .orElse(false).getObject())));
 

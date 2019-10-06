@@ -142,8 +142,8 @@ public class KnowledgeBasePanel
         IModel<KBHandle> aHandleModel, IModel<Project> aProjectModel)
     {
         KnowledgeBaseItemAutoCompleteField field = new KnowledgeBaseItemAutoCompleteField(
-                aId, aHandleModel, _query -> 
-                        listSearchResults(aProjectModel.getObject(), _query)) {
+                aId, aHandleModel, query ->
+                        listSearchResults(aProjectModel.getObject(), query)) {
             private static final long serialVersionUID = 3188821013226116770L;
 
             @Override

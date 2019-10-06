@@ -63,7 +63,7 @@ public class ImageFeatureEditor
 
         field = new TextField<String>("value");
         field.add(urlValidator());
-        field.add(OnChangeAjaxBehavior.onChange(_target -> _target.add(preview)));
+        field.add(OnChangeAjaxBehavior.onChange(target -> target.add(preview)));
         add(field);
     }
     

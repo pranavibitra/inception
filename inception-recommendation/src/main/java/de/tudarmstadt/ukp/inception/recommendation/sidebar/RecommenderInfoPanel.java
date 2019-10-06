@@ -91,8 +91,8 @@ public class RecommenderInfoPanel
                 item.add(new Label("name", recommender.getName()));
                 item.add(new Label("state", evalResult.isPresent() ? "active" : "off"));
 
-                item.add(new LambdaAjaxLink("acceptAll", _target -> 
-                        actionAcceptAll(_target, recommender)));
+                item.add(new LambdaAjaxLink("acceptAll", target ->
+                        actionAcceptAll(target, recommender)));
                 
                 WebMarkupContainer resultsContainer = new WebMarkupContainer("resultsContainer");
                 resultsContainer.setVisible(evalResult.isPresent());

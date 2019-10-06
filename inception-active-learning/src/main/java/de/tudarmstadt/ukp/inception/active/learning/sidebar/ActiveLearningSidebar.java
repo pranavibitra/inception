@@ -845,8 +845,8 @@ public class ActiveLearningSidebar
                 else {
                     recFeatureValue = rec.getAnnotation();
                 }
-                LambdaAjaxLink textLink = new LambdaAjaxLink(CID_JUMP_TO_ANNOTATION, _target -> 
-                        actionSelectHistoryItem(_target, item.getModelObject()));
+                LambdaAjaxLink textLink = new LambdaAjaxLink(CID_JUMP_TO_ANNOTATION, target ->
+                        actionSelectHistoryItem(target, item.getModelObject()));
                 textLink.setBody(rec::getTokenText);
                 item.add(textLink);
 

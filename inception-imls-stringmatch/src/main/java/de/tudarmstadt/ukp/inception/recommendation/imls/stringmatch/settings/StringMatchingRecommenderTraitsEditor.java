@@ -175,7 +175,7 @@ public class StringMatchingRecommenderTraitsEditor
                     aItem.add(new Label("name", aItem.getModelObject().getName()));
 
                     aItem.add(new LambdaAjaxLink("delete",
-                        _target -> actionDeleteGazeteer(_target, gazeteer)));
+                        target -> actionDeleteGazeteer(target, gazeteer)));
 
                     aItem.add(new DownloadLink("download",
                             LoadableDetachableModel.of(() -> getGazeteerFile(gazeteer)),

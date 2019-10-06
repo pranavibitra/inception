@@ -80,8 +80,8 @@ public class ConceptFeatureEditor
         add(iriBadge = new IriInfoBadge("iriInfoBadge",
                 LoadableDetachableModel.of(this::iriTooltipValue)));
         iriBadge.add(visibleWhen(() -> isNotBlank(iriBadge.getModelObject())));
-        add(focusComponent = new KnowledgeBaseItemAutoCompleteField(MID_VALUE, _query -> 
-                getCandidates(aStateModel, aHandler, _query)));
+        add(focusComponent = new KnowledgeBaseItemAutoCompleteField(MID_VALUE, query ->
+                getCandidates(aStateModel, aHandler, query)));
         add(new DisabledKBWarning("disabledKBWarning", Model.of(getModelObject().feature)));
     }
 

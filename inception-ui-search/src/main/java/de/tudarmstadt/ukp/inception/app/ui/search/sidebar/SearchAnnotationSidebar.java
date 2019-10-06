@@ -157,9 +157,9 @@ public class SearchAnnotationSidebar
         searchOptionsForm.setOutputMarkupPlaceholderTag(true);
         searchForm.add(searchOptionsForm);
 
-        searchForm.add(new LambdaAjaxLink("toggleOptionsVisibility", _target -> {
+        searchForm.add(new LambdaAjaxLink("toggleOptionsVisibility", target -> {
             searchOptionsForm.getModelObject().toggleVisibility();
-            _target.add(searchOptionsForm);
+            target.add(searchOptionsForm);
         }));
 
         groupedSearchResults = LambdaModel.of(this::getSearchResultsGrouped);
@@ -214,9 +214,9 @@ public class SearchAnnotationSidebar
         annotationOptionsForm.setOutputMarkupPlaceholderTag(true);
         annotationForm.add(annotationOptionsForm);
 
-        annotationForm.add(new LambdaAjaxLink("toggleCreateOptionsVisibility", _target -> {
+        annotationForm.add(new LambdaAjaxLink("toggleCreateOptionsVisibility", target -> {
             annotationOptionsForm.getModelObject().toggleVisibility();
-            _target.add(annotationOptionsForm);
+            target.add(annotationOptionsForm);
         }));
 
         // create delete-button and options form
@@ -232,9 +232,9 @@ public class SearchAnnotationSidebar
         deleteOptionsForm.setOutputMarkupPlaceholderTag(true);
         annotationForm.add(deleteOptionsForm);
 
-        annotationForm.add(new LambdaAjaxLink("toggleDeleteOptionsVisibility", _target -> {
+        annotationForm.add(new LambdaAjaxLink("toggleDeleteOptionsVisibility", target -> {
             deleteOptionsForm.getModelObject().toggleVisibility();
-            _target.add(deleteOptionsForm);
+            target.add(deleteOptionsForm);
         }));
 
         annotationForm.setDefaultButton(annotateButton);

@@ -140,8 +140,8 @@ public class PdfAnnoRendererTest
         when(schemaService.listAnnotationLayer(any())).thenReturn(asList(posLayer));
         when(schemaService.listAnnotationFeature(any(AnnotationLayer.class)))
             .thenReturn(asList(posFeature));
-        when(schemaService.getAdapter(any(AnnotationLayer.class))).then(_call -> {
-            AnnotationLayer layer = _call.getArgument(0);
+        when(schemaService.getAdapter(any(AnnotationLayer.class))).then(call -> {
+            AnnotationLayer layer = call.getArgument(0);
             return layerRegistry.getLayerSupport(layer).createAdapter(layer);
         });
 

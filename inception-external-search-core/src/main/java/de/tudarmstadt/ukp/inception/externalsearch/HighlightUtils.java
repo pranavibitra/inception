@@ -38,20 +38,20 @@ public class HighlightUtils
             String originalText)
     {
         // remove markers from the highlight
-        String highlight_clean = highlight.replace(HIGHLIGHT_START_TAG, "")
+        String highlightClean = highlight.replace(HIGHLIGHT_START_TAG, "")
                 .replace(HIGHLIGHT_END_TAG, "");
 
         // find the matching highlight offset in the original text
-        int highlight_start_index = originalText.indexOf(highlight_clean);
+        int highlightStartIndex = originalText.indexOf(highlightClean);
 
         // find offset to all keywords in the highlight
         // they are enclosed in <em> </em> tags in the highlight
         String highlightTemp = highlight;
         List<OffsetSpan> offsets = new ArrayList<>();
         while (highlightTemp.contains(HIGHLIGHT_START_TAG)) {
-            int start = highlight_start_index + highlightTemp.indexOf(HIGHLIGHT_START_TAG);
+            int start = highlightStartIndex + highlightTemp.indexOf(HIGHLIGHT_START_TAG);
             highlightTemp = highlightTemp.replaceFirst(HIGHLIGHT_START_TAG, "");
-            int end = highlight_start_index + highlightTemp.indexOf(HIGHLIGHT_END_TAG);
+            int end = highlightStartIndex + highlightTemp.indexOf(HIGHLIGHT_END_TAG);
             highlightTemp = highlightTemp.replaceFirst(HIGHLIGHT_END_TAG, "");
             offsets.add(new OffsetSpan(start, end));
         }

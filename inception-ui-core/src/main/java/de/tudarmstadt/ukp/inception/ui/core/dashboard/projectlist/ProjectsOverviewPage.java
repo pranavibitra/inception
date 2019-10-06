@@ -221,7 +221,7 @@ public class ProjectsOverviewPage
         WebMarkupContainer container = new WebMarkupContainer("actionDropdown");
         
         LambdaAjaxLink leaveProjectLink = new LambdaAjaxLink(MID_LEAVE_PROJECT,
-            _target -> actionConfirmLeaveProject(_target, aItem));
+            target -> actionConfirmLeaveProject(target, aItem));
         boolean hasProjectPermissions = !projectService
                 .listProjectPermissionLevel(user, currentProject).isEmpty();
 
@@ -244,11 +244,11 @@ public class ProjectsOverviewPage
     {
         User user = userRepository.getCurrentUser();
         Project currentProject = aItem.getModelObject();
-        confirmLeaveDialog.setConfirmAction((_target) -> {
+        confirmLeaveDialog.setConfirmAction((target) -> {
             projectService.listProjectPermissionLevel(user, currentProject).stream()
                     .forEach(projectService::removeProjectPermission);
-            _target.add(projectListContainer);
-            _target.addChildren(getPage(), IFeedback.class);
+            target.add(projectListContainer);
+            target.addChildren(getPage(), IFeedback.class);
             success("You are no longer a member of project [" + currentProject.getName() + "]");
         });
         confirmLeaveDialog.show(aTarget);
@@ -265,8 +265,8 @@ public class ProjectsOverviewPage
             protected void populateItem(ListItem<PermissionLevel> aItem)
             {
                 PermissionLevel level = aItem.getModelObject();
-                LambdaAjaxLink link = new LambdaAjaxLink("roleFilterLink", _target -> 
-                        actionApplyRoleFilter(_target, aItem.getModelObject()));
+                LambdaAjaxLink link = new LambdaAjaxLink("roleFilterLink", target ->
+                        actionApplyRoleFilter(target, aItem.getModelObject()));
                 link.add(new Label(MID_LABEL, getString(
                         Classes.simpleName(level.getDeclaringClass()) + '.' + level.toString())));
                 link.add(new AttributeAppender("class", () -> 

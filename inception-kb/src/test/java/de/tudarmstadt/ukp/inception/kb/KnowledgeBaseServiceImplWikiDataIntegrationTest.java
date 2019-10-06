@@ -247,16 +247,16 @@ public class KnowledgeBaseServiceImplWikiDataIntegrationTest  {
     private KnowledgeBase buildKnowledgeBase(Project project, String name) throws IOException
     {
         PROFILES = KnowledgeBaseProfile.readKnowledgeBaseProfiles();
-        KnowledgeBase kb_wikidata_direct = new KnowledgeBase();
-        kb_wikidata_direct.setProject(project);
-        kb_wikidata_direct.setName("Wikidata (official/direct mapping)");
-        kb_wikidata_direct.setType(PROFILES.get("wikidata").getType());
-        kb_wikidata_direct.applyMapping(PROFILES.get("wikidata").getMapping());
-        kb_wikidata_direct.applyRootConcepts(PROFILES.get("wikidata"));
-        kb_wikidata_direct.setReification(reification);
-        kb_wikidata_direct.setDefaultLanguage("en");
-        kb_wikidata_direct.setMaxResults(1000);
+        KnowledgeBase kbWikidataDirect = new KnowledgeBase();
+        kbWikidataDirect.setProject(project);
+        kbWikidataDirect.setName("Wikidata (official/direct mapping)");
+        kbWikidataDirect.setType(PROFILES.get("wikidata").getType());
+        kbWikidataDirect.applyMapping(PROFILES.get("wikidata").getMapping());
+        kbWikidataDirect.applyRootConcepts(PROFILES.get("wikidata"));
+        kbWikidataDirect.setReification(reification);
+        kbWikidataDirect.setDefaultLanguage("en");
+        kbWikidataDirect.setMaxResults(1000);
 
-        return kb_wikidata_direct;
+        return kbWikidataDirect;
     }
 }

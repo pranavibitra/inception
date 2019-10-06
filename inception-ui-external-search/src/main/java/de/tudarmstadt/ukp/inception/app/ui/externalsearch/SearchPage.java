@@ -229,7 +229,7 @@ public class SearchPage extends ApplicationPageBase
             }
             add(new Label("highlight", highlight).setEscapeModelStrings(false));
             
-            LambdaAjaxLink link = new LambdaAjaxLink("titleLink", _target -> {
+            LambdaAjaxLink link = new LambdaAjaxLink("titleLink", target -> {
                 PageParameters pageParameters = new PageParameters()
                     .add(DocumentDetailsPage.REPOSITORY_ID, result.getRepository().getId())
                     .add(DocumentDetailsPage.COLLECTION_ID, result.getCollectionId())
@@ -250,7 +250,7 @@ public class SearchPage extends ApplicationPageBase
             add(new Label("score", result.getScore()));
             add(new Label("importStatus", () ->
                     existsSourceDocument ? "imported" : "not imported"));
-            add(new LambdaAjaxLink("importLink", _target -> actionImportDocument(_target, result))
+            add(new LambdaAjaxLink("importLink", target -> actionImportDocument(target, result))
                     .add(visibleWhen(() -> !existsSourceDocument)));
             
             add(LinkProvider
