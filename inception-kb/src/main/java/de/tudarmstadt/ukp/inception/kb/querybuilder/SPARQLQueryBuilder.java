@@ -114,7 +114,7 @@ import de.tudarmstadt.ukp.inception.kb.model.KnowledgeBase;
 public class SPARQLQueryBuilder
     implements SPARQLQuery, SPARQLQueryPrimaryConditions, SPARQLQueryOptionalElements
 {
-    private static final Logger LOG = LoggerFactory.getLogger(SPARQLQueryBuilder.class);
+    private final static Logger LOG = LoggerFactory.getLogger(SPARQLQueryBuilder.class);
 
     public static final int DEFAULT_LIMIT = 0;
     
