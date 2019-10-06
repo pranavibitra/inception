@@ -68,7 +68,7 @@ public class RecommenderContext
         store.put(aKey.name, aValue);
     }
     
-    public synchronized void info(String aFormat, Object... aValues)
+    public synchronized  void info(String aFormat, Object... aValues)
     {
         if (closed) {
             throw new IllegalStateException("Adding data to a closed context is not permitted.");
