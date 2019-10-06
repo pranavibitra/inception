@@ -42,7 +42,7 @@ import de.tudarmstadt.ukp.inception.conceptlinking.model.Property;
 public class FileUtils
 {
 
-    private static final Logger log = LoggerFactory.getLogger(FileUtils.class);
+    private final static Logger log = LoggerFactory.getLogger(FileUtils.class);
 
     private static List<String> readLines(File r, String reason)
     {
