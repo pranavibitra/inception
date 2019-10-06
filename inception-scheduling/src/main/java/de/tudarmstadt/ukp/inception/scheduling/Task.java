@@ -28,7 +28,7 @@ import de.tudarmstadt.ukp.clarin.webanno.security.model.User;
 public abstract class Task
     implements Runnable
 {
-    private static final AtomicInteger nextId = new AtomicInteger(1);
+    private static final  AtomicInteger nextId = new AtomicInteger(1);
     
     private final User user;
     private final Project project;
