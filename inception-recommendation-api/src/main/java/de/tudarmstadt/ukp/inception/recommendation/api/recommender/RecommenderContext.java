@@ -54,12 +54,12 @@ public class RecommenderContext
 
     @SuppressWarnings("unchecked")
     @Nullable
-    public synchronized <T> Optional<T> get(Key<T> aKey)
+    synchronized public <T> Optional<T> get(Key<T> aKey)
     {
         return Optional.ofNullable((T) store.get(aKey.name));
     }
 
-    public synchronized <T> void put(Key<T> aKey, T aValue)
+    synchronized public <T> void put(Key<T> aKey, T aValue)
     {
         if (closed) {
             throw new IllegalStateException("Adding data to a closed context is not permitted.");
@@ -68,7 +68,7 @@ public class RecommenderContext
         store.put(aKey.name, aValue);
     }
     
-    public synchronized void info(String aFormat, Object... aValues)
+    synchronized public void info(String aFormat, Object... aValues)
     {
         if (closed) {
             throw new IllegalStateException("Adding data to a closed context is not permitted.");
@@ -77,7 +77,7 @@ public class RecommenderContext
         messages.add(LogMessage.info(this, aFormat, aValues));
     }
 
-    public synchronized void warn(String aFormat, Object... aValues)
+    synchronized public void warn(String aFormat, Object... aValues)
     {
         if (closed) {
             throw new IllegalStateException("Adding data to a closed context is not permitted.");
@@ -86,7 +86,7 @@ public class RecommenderContext
         messages.add(LogMessage.warn(this, aFormat, aValues));
     }
 
-    public synchronized void error(String aFormat, Object... aValues)
+    synchronized public void error(String aFormat, Object... aValues)
     {
         if (closed) {
             throw new IllegalStateException("Adding data to a closed context is not permitted.");
@@ -103,7 +103,7 @@ public class RecommenderContext
     /**
      * Close the context. Further modifications to the context are not permitted.
      */
-    public synchronized void close()
+    synchronized public void close()
     {
         if (!closed) {
             closed = true;
@@ -114,7 +114,7 @@ public class RecommenderContext
     /**
      * @return whether the context is closed.
      */
-    public synchronized boolean isClosed()
+    synchronized public boolean isClosed()
     {
         return closed;
     }
